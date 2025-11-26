@@ -3,40 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <title>Kori</title>
+
+  <!-- Elza font -->
+  <link rel="stylesheet" href="https://use.typekit.net/vvy6map.css">
+
   <style>
-  @import url("https://use.typekit.net/vvy6map.css");
-</style>
+    :root {
+      --bg: #000000;
+      --text: #ffeb3b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 40px;
-      background: #000000;       /* Black background */
-      color: #ffeb3b;            /* Yellow text */
-      font-family: "elza", sans-serif;
-      line-height: 1.6;
+      min-height: 100vh;
+      padding: 40px 20px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "elza", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
-    a {
-      color: #ffeb3b;            /* Links also yellow */
-      text-decoration: underline;
+
+    /* Low-opacity map overlay */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/World_map_-_low_resolution.svg/1280px-World_map_-_low_resolution.svg.png");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.06;          /* how strong the map is */
+      filter: grayscale(1) contrast(1.2);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;             /* sit above the map overlay */
+      max-width: 60rem;
+    }
+
+    h1, h2, p {
+      margin: 0 0 1rem;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+    }
+
+    h2 {
+      font-size: clamp(1.4rem, 2.4vw, 2rem);
+      margin-top: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
-  <h1>Short Stories</h1>
+  <div class="content">
+    <h1>Short Stories</h1>
 
-  <h2>Story 1: The Door</h2>
-  <p>
-    Your story text goes here. You can write as long as you like,
-    it will stay yellow on a black background.
-  </p>
-
-  <h2>Story 2: The Signal</h2>
-  <p>
-    Another story here…
-  </p>
-
-  <!-- Add more stories as needed -->
-</body>
-</html>
-
-
+    <h2>Story 1: The Door</h2>
+    <p>
 
